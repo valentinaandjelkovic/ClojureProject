@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Sign Up <span class="small">Application</span></h1>
+<div class="row">
+    <div class="col-md-6">
+        <form role="form" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <ul class="errors">
+                    {% if errors.username %}
+                    <li>{{errors.username|join}}</li>
+                    {% endif %}
+                </ul>
+                <input type="input" class="form-control" name="username"
+                       placeholder="Enter username" value="{{username}}">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <ul class="errors">
+                    {% if errors.email %}
+                    <li>{{errors.email|join}}</li>
+                    {% endif %}
+                </ul>
+                <input type="email" class="form-control" name="email"
+                       placeholder="example@gmail.com" value="{{email}}">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <ul class="errors">
+                    {% if errors.password %}
+                    <li>{{errors.password|join}}</li>
+                    {% endif %}
+                </ul>
+                <input type="password" class="form-control" name="password"
+                       placeholder="Enter password" value="{{password}}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
