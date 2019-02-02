@@ -1,0 +1,1 @@
+(ns traffic.models.user)
