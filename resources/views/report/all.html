@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Recently Added</h1>
+<ol class="albums">
+    {% for report in reports %}
+    <li>
+        <div class="report">{{report.type}}</div>
+        <div class="user">User {{report.user}}</div>
+        <div class="user">Street {{report.street}}</div>
+        <div class="user">Detail {{report.description}}</div>
+        <div class="date">Reported time {{report.date}}</div>
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}
