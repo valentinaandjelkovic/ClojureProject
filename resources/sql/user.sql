@@ -19,5 +19,9 @@ WHERE id = :id;
 DELETE FROM user
 WHERE id = :id;
 
+-- name: get-user-by-username
+-- retrives a user redoc given the username
+SELECT * FROM user
+WHERE username = :username;
 
 

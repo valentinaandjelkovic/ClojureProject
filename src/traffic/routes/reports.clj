@@ -8,11 +8,18 @@
   (layout/render "report/all.html"
                  {:reports (report/get-all)}))
 
+(defn reports-by-type-page
+  [id]
+  (layout/render "report/all.html"
+                 {:reports (report/get-reports-by-type id)}))
+
 (defn report-type-page
   []
   (layout/render "report/home.html"
                  {:types (report/get-all-types)}))
 
+
 (defroutes report-routes
            (GET "/reports" [] (reports-page))
-           (GET "/report-type" [] (report-type-page)))
+           (GET "/report-type" [] (report-type-page))
+           (GET "/reports/:id" [& id] (reports-by-type-page id)))

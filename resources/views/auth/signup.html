@@ -1,61 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Sign Up <span class="small">Application</span></h1>
-<div class="row">
-    <div class="col-md-6">
-        <form role="form" method="POST">
-            <div class="form-group">
-                <label for="username">First name</label>
-                <ul class="errors">
-                    {% if errors.first_name %}
-                    <li>{{errors.first_name|join}}</li>
-                    {% endif %}
-                </ul>
-                <input type="input" class="form-control" name="first_name"
-                       placeholder="Enter first name" value="{{first_name}}">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-12">
+            <div class="account-wall signup">
+                <h3>Register</h3>
+                <img class="profile-img" src="img/user.png"
+                     alt="">
+                <form role="form" method="POST">
+                    <div class="form-group">
+                        <label for="username">First name</label>
+                        <ul class="errors">
+                            {% if errors.first_name %}
+                            <li>{{errors.first_name|join}}</li>
+                            {% endif %}
+                        </ul>
+                        <input type="input" class="form-control" name="first_name"
+                               placeholder="Enter first name" value="{{first_name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Last name</label>
+                        <ul class="errors">
+                            {% if errors.last_name %}
+                            <li>{{errors.last_name|join}}</li>
+                            {% endif %}
+                        </ul>
+                        <input type="input" class="form-control" name="last_name"
+                               placeholder="Enter last name" value="{{last_name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <ul class="errors">
+                            {% if errors.username %}
+                            <li>{{errors.username|join}}</li>
+                            {% endif %}
+                        </ul>
+                        <input type="input" class="form-control" name="username"
+                               placeholder="Enter username" value="{{username}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <ul class="errors">
+                            {% if errors.email %}
+                            <li>{{errors.email|join}}</li>
+                            {% endif %}
+                        </ul>
+                        <input type="email" class="form-control" name="email"
+                               placeholder="example@gmail.com" value="{{email}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <ul class="errors">
+                            {% if errors.password %}
+                            <li>{{errors.password|join}}</li>
+                            {% endif %}
+                        </ul>
+                        <input type="password" class="form-control" name="password"
+                               placeholder="Enter password" value="{{password}}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="username">Last name</label>
-                <ul class="errors">
-                    {% if errors.last_name %}
-                    <li>{{errors.last_name|join}}</li>
-                    {% endif %}
-                </ul>
-                <input type="input" class="form-control" name="last_name"
-                       placeholder="Enter last name" value="{{last_name}}">
-            </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <ul class="errors">
-                    {% if errors.username %}
-                    <li>{{errors.username|join}}</li>
-                    {% endif %}
-                </ul>
-                <input type="input" class="form-control" name="username"
-                       placeholder="Enter username" value="{{username}}">
-            </div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <ul class="errors">
-                    {% if errors.email %}
-                    <li>{{errors.email|join}}</li>
-                    {% endif %}
-                </ul>
-                <input type="email" class="form-control" name="email"
-                       placeholder="example@gmail.com" value="{{email}}">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <ul class="errors">
-                    {% if errors.password %}
-                    <li>{{errors.password|join}}</li>
-                    {% endif %}
-                </ul>
-                <input type="password" class="form-control" name="password"
-                       placeholder="Enter password" value="{{password}}">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
     </div>
 </div>
 {% endblock %}
