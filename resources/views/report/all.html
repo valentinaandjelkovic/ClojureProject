@@ -1,19 +1,42 @@
-{% extends "base.html" %}
+{% extends "menu-user.html" %}
+
+{% block page-style %}
+{% style "/css/report.css" %}
+{% endblock %}
+
 {% block content %}
-<h1>Recently Added</h1>
-<div class="row">
-    <div class="col-sm-6 col-md-4">
-        <ol class="albums">
-            {% for report in reports %}
-            <li>
-                <div class="report">{{report.type}}</div>
-                <div class="user">User {{report.user}}</div>
-                <div class="user">Street {{report.street}}</div>
-                <div class="user">Detail {{report.description}}</div>
-                <div class="date">Reported time {{report.date}}</div>
-            </li>
-            {% endfor %}
-        </ol>
+<div class="container">
+    <h1>Recently Added</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% for report in reports %}
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                               href=#report_{{ forloop.counter }}
+                               aria-expanded="false" aria-controls="collapseTwo">
+                                {{report.type}}
+                                <br/>Street {{report.street}}
+                            </a>
+                        </h4>
+
+                    </div>
+                    <div id=report_{{forloop.counter}} class="panel-collapse collapse" role="tabpanel"
+                         aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <div class="user">User {{report.user}}</div>
+                            <div class="user">Detail {{report.description}}</div>
+                            <div class="date">Reported time {{report.date}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
     </div>
     <div class="col-sm-6 col-md-4">
         {% if form.error %}

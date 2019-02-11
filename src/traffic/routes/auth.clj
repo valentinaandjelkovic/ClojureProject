@@ -58,18 +58,16 @@
   (let [user (find-user params)]
     (if (and user (password/check (:password params)
                                   (:password user)))
-      (assoc (redirect "/reports")
-        :session (assoc session :identity user))
+      (assoc (redirect "/") :session (assoc session :identity user))
       (layout/render "auth/login.html" (assoc params :errors "The provided username and/or password are incorrect.")))))
 
-(defn do-logout [{session :session}]
+(defn logout [request]
   (-> (redirect "/login")
-      (assoc :session (dissoc session :identity))))
-
-
+      (assoc :session {})))
 
 (defroutes auth-routes
            (GET "/signup" [] (signup-page))
            (POST "/signup" [& form] (signup-page-submit form))
            (GET "/login" [] (login-page))
-           (POST "/login" request (login-page-submit request)))
+           (POST "/login" request (login-page-submit request))
+           (GET "/logout" request (logout request)))
