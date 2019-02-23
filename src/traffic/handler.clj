@@ -14,9 +14,9 @@
             [buddy.auth.accessrules :refer [wrap-access-rules success error]]
             [ring.middleware.session :refer [wrap-session]]
             [ring.middleware.params :refer [wrap-params]]
-            [traffic.routes.rules :refer [rules access-error]]
             [buddy.auth :refer [authenticated?]]
-            [buddy.auth.accessrules :refer [restrict]]))
+            [buddy.auth.accessrules :refer [restrict]]
+            [ring.middleware.json :refer [wrap-json-response]]))
 
 (defn on-error [request response]
   {:status  403
@@ -27,10 +27,7 @@
   (restrict handler {:handler authenticated?
                      :on-error on-error}))
 
-(defn wrap-rule [handler]
-  (-> handler
-      (wrap-access-rules {:rules rules
-                          :on-error on-error})))
+
 
 (defroutes base-routes
            (route/not-found "Not Found")
@@ -42,8 +39,8 @@
   (-> (routes
         auth-routes home-routes report-routes base-routes
               (wrap-routes wrap-defaults api-defaults))
+      (wrap-json-response)
       (handler/site)
-      ;(wrap-rule)
       (wrap-authentication backend)
       (wrap-authorization backend)
       (wrap-params)

@@ -1,7 +1,7 @@
-(ns traffic.models.report
+(ns traffic.models.street
   (:require [yesql.core :refer [defqueries]]))
 
 (def db-spec (clojure.edn/read-string (slurp "config.edn")))
 
-(defqueries "sql/report.sql"
+(defqueries "sql/street.sql"
             {:connection db-spec})

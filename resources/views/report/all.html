@@ -6,20 +6,27 @@
 
 {% block content %}
 <div class="container">
-    <h1>Recently Added</h1>
     <div class="row">
         <div class="col-md-12">
+            <div class="pull-left">
+                <h3>Recently Added</h3>
+            </div>
+            <div class="pull-right">
+                <a href="/reports/add" class="btn btn-primary" role="button">Add new report</a>
+            </div>
+        </div>
+        <div class="col-md-12 mt-1">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 {% for report in reports %}
 
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
+                            <img src={{report.image}} width="30" height="30">
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
                                href=#report_{{ forloop.counter }}
                                aria-expanded="false" aria-controls="collapseTwo">
-                                {{report.type}}
-                                <br/>Street {{report.street}}
+                                {{report.street}}
                             </a>
                         </h4>
 

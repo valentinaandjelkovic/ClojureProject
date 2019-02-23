@@ -1,0 +1,59 @@
+{% extends "menu-user.html" %}
+
+{% block content %}
+<div class="container">
+    <form method="post" action="/reports/add">
+        <fieldset>
+            <legend>Report</legend>
+            <div class="form-group row">
+                <label for="type" class="col-lg-3">Report type</label>
+                <div class="col-lg-8">
+                    <select id="type" name="type" class="form-control">
+                        {% for type in types %}
+                        <option value="{{type.id}}">{{type.name}}</option>
+                        {% endfor %}
+                        <span id="error_type" class="error"></span>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-lg-3">Description</label>
+                <div class="col-lg-8">
+                    <textarea class="form-control" rows="4" cols="50" id="description" name="description"
+                              placeholder="Enter description"></textarea>
+                    <span id="error_description" class="error"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="city" class="col-lg-3">City</label>
+                <div class="col-lg-8">
+                    <select class="form-control" name="city"
+                            id="city" multiple="multiple">
+                    </select>
+                    <span id="error_city" class="error"></span>
+                </div>
+            </div>
+            <div class="form-group row" id="street_div">
+                <div class="col-lg-3">
+                    <label for="street" class="label-form-control">Street</label>
+                </div>
+                <div class="col-lg-8">
+                    <select class="form-control" name="street"
+                            id="street" multiple="multiple">
+                    </select>
+                    <span class="error" id="error_street"></span>
+                </div>
+            </div>
+            <div class="text-right">
+                <button type="button" class="btn btn-primary" id="save_report">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
+
+{% block page-scripts%}
+{% script "/js/report.js" %}
+{% endblock %}
+
+

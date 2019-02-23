@@ -1,6 +1,6 @@
 -- name: get-all
 -- retrives all reports
-SELECT r.id, u.username AS USER, s.name AS street, c.name AS city, rt.name AS TYPE, r.date, r.description
+SELECT r.id, u.username AS USER, s.name AS street, c.name AS city, rt.name AS TYPE, rt.image AS image, r.date, r.description
 FROM report r JOIN report_type rt ON (r.type=rt.id) JOIN USER u ON (u.id=r.user) JOIN street s ON (s.id=r.street) JOIN city c ON (s.city=c.id)
 ORDER BY r.date DESC;
 
@@ -12,8 +12,13 @@ ORDER BY name;
 
 -- name: get-reports-by-type
 -- retrive reports of specific type
-SELECT r.id, u.username AS USER, s.name AS street, c.name AS city, rt.name AS TYPE, r.date, r.description
+SELECT r.id, u.username AS USER, s.name AS street, c.name AS city, rt.name AS TYPE,rt.image AS image, r.date, r.description
 FROM report r JOIN report_type rt ON (r.type=rt.id) JOIN USER u ON (u.id=r.user) JOIN street s ON (s.id=r.street) JOIN city c ON (s.city=c.id)
 WHERE rt.id=:id
 ORDER BY r.date DESC;
+
+-- name: insert-report!
+-- saving report
+INSERT INTO report (description, type, street, date, user) VALUES (:description, :type, :street, :date, :user);
+
 

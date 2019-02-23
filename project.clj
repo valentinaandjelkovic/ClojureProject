@@ -20,19 +20,18 @@
                  [funcool/struct "1.3.0"]
                  [yesql "0.5.3"]
                  [com.fzakaria/slf4j-timbre "0.3.12"]
-                 ;[buddy/buddy-hashers "1.3.0"]
                  [crypto-password "0.2.0"]
-                 [buddy/buddy-auth "2.1.0"]]
+                 [buddy/buddy-auth "2.1.0"]
+                 [ring/ring-json "0.4.0"]
+                 [yogthos/config "1.1.1"]]
+  :require [config.core :refer [env]]
+  :jvm-opts ["-Dconf=dev-config.edn"]
 
   :plugins [[lein-ring "0.12.4"]
             [migratus-lein "0.7.0"]]
   :migratus {:store         :database
              :migration-dir "migrations"
-             :db            {:classname   "com.mysql.cj.jdbc.Driver"
-                             :subprotocol "mysql"
-                             :subname     "//localhost/clojure"
-                             :user        "root"
-                             :password    ""}}
+             :db (clojure.edn/read-string (slurp "config.edn"))}
   :ring {:handler traffic.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]

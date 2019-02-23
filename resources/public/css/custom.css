@@ -101,3 +101,9 @@ nav {
   padding: 10px;
 }
 
+.hidden{
+    display:none;
+}
+.error{
+    color:red;
+}
