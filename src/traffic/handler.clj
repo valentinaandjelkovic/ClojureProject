@@ -5,10 +5,12 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
             [traffic.routes.home :refer [home-routes]]
             [traffic.routes.auth :refer [auth-routes]]
+            [traffic.routes.weather :refer [weather-routes]]
             [ring.middleware.webjars :refer [wrap-webjars]]
             [ring.middleware.flash :refer [wrap-flash]]
             [ring.middleware.resource :refer [wrap-resource]]
             [traffic.routes.reports :refer [report-routes]]
+            [traffic.routes.city :refer [city-routes]]
             [buddy.auth.backends.session :refer [session-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
             [buddy.auth.accessrules :refer [wrap-access-rules success error]]
@@ -24,7 +26,7 @@
    :body    (str "Access to " (:uri request) " is not authorized")})
 
 (defn wrap-restricted [handler]
-  (restrict handler {:handler authenticated?
+  (restrict handler {:handler  authenticated?
                      :on-error on-error}))
 
 
@@ -37,8 +39,8 @@
 
 (def app
   (-> (routes
-        auth-routes home-routes report-routes base-routes
-              (wrap-routes wrap-defaults api-defaults))
+        auth-routes home-routes report-routes weather-routes city-routes base-routes
+        (wrap-routes wrap-defaults api-defaults))
       (wrap-json-response)
       (handler/site)
       (wrap-authentication backend)

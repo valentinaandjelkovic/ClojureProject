@@ -3,8 +3,6 @@
             [traffic.layout :as layout]
             [ring.util.response :refer [response redirect]]
             [traffic.models.report :as report]
-            [traffic.models.city :as city]
-            [traffic.models.street :as street]
             [buddy.auth.accessrules :refer [restrict]]
             [buddy.auth :refer [authenticated?]]
             [struct.core :as st]))
@@ -37,24 +35,12 @@
                    {:types (report/get-all-types)})
     (redirect "/login")))
 
-(defn get-city
-  [request]
-  (let [cities (->> (:params request)
-                    city/search-city)]
-    cities))
-
-(defn get-street
-  [request]
-  (let [streets (->> (:params request)
-                     street/get-streets-by-city)]
-    streets))
 
 (defn save-report! [request]
   (let [report (merge (:params request) {:user (get-in request [:session :identity :id]) :date (new java.util.Date)})]
     (report/insert-report! report)))
 
 (defn add-report-page-submit [request]
-  (println "########### Request " request)
   (if (authenticated? (:session request))
     (let [errors (validate-report? (:params request))]
       (if (empty? errors)
@@ -70,6 +56,4 @@
            (GET "/reports" request (reports-page (:session request)))
            (GET "/reports/add" request (add-report-page (:session request)))
            (POST "/reports/add" request (add-report-page-submit request))
-           (GET "/reports/:id" [& id] (reports-by-type-page id))
-           (GET "/city" request (get-city request))
-           (GET "/street" request (get-street request)))
+           (GET "/reports/:id" [& id] (reports-by-type-page id)))

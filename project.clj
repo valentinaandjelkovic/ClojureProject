@@ -23,7 +23,10 @@
                  [crypto-password "0.2.0"]
                  [buddy/buddy-auth "2.1.0"]
                  [ring/ring-json "0.4.0"]
-                 [yogthos/config "1.1.1"]]
+                 [yogthos/config "1.1.1"]
+                 [clj-http "3.9.1"]
+                 [org.clojure/data.csv "0.1.4"]
+                 [cheshire "5.8.1"]]
   :require [config.core :refer [env]]
   :jvm-opts ["-Dconf=dev-config.edn"]
 
@@ -31,7 +34,7 @@
             [migratus-lein "0.7.0"]]
   :migratus {:store         :database
              :migration-dir "migrations"
-             :db (clojure.edn/read-string (slurp "config.edn"))}
+             :db            (clojure.edn/read-string (slurp "config.edn"))}
   :ring {:handler traffic.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]

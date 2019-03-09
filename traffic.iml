@@ -17,6 +17,7 @@
     <orderEntry type="library" name="Leiningen: buddy/buddy-core:1.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: buddy/buddy-sign:2.2.0" level="project" />
     <orderEntry type="library" name="Leiningen: cheshire:5.8.1" level="project" />
+    <orderEntry type="library" name="Leiningen: clj-http:3.9.1" level="project" />
     <orderEntry type="library" name="Leiningen: clj-stacktrace:0.2.7" level="project" />
     <orderEntry type="library" name="Leiningen: clj-time:0.11.0" level="project" />
     <orderEntry type="library" name="Leiningen: clj-tuple:0.2.2" level="project" />
@@ -48,7 +49,8 @@
     <orderEntry type="library" name="Leiningen: com.zaxxer/HikariCP:3.2.0" level="project" />
     <orderEntry type="library" name="Leiningen: commons-codec:1.11" level="project" />
     <orderEntry type="library" name="Leiningen: commons-fileupload:1.3.3" level="project" />
-    <orderEntry type="library" name="Leiningen: commons-io:2.5" level="project" />
+    <orderEntry type="library" name="Leiningen: commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Leiningen: commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Leiningen: compojure:1.6.1" level="project" />
     <orderEntry type="library" name="Leiningen: conman:0.8.3" level="project" />
     <orderEntry type="library" name="Leiningen: crypto-equality:1.0.0" level="project" />
@@ -74,12 +76,19 @@
     <orderEntry type="library" name="Leiningen: org.apache.commons/commons-compress:1.9" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.commons/commons-lang3:3.4" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.directory.studio/org.apache.commons.codec:1.8" level="project" />
+    <orderEntry type="library" name="Leiningen: org.apache.httpcomponents/httpasyncclient:4.1.3" level="project" />
+    <orderEntry type="library" name="Leiningen: org.apache.httpcomponents/httpclient-cache:4.5.5" level="project" />
+    <orderEntry type="library" name="Leiningen: org.apache.httpcomponents/httpclient:4.5.5" level="project" />
+    <orderEntry type="library" name="Leiningen: org.apache.httpcomponents/httpcore-nio:4.4.6" level="project" />
+    <orderEntry type="library" name="Leiningen: org.apache.httpcomponents/httpcore:4.4.9" level="project" />
+    <orderEntry type="library" name="Leiningen: org.apache.httpcomponents/httpmime:4.5.5" level="project" />
     <orderEntry type="library" name="Leiningen: org.bouncycastle/bcpkix-jdk15on:1.58" level="project" />
     <orderEntry type="library" name="Leiningen: org.bouncycastle/bcprov-jdk15on:1.58" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.9.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/core.cache:0.6.4" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/core.memoize:0.5.7" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/core.specs.alpha:0.1.24" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/data.csv:0.1.4" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/data.priority-map:0.0.4" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/java.classpath:0.2.2" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/java.jdbc:0.7.7" level="project" />
@@ -126,7 +135,9 @@
     <orderEntry type="library" name="Leiningen: ring/ring-ssl:0.3.0" level="project" />
     <orderEntry type="library" name="Leiningen: ring:1.3.2" level="project" />
     <orderEntry type="library" name="Leiningen: selmer:1.12.5" level="project" />
+    <orderEntry type="library" name="Leiningen: slingshot:0.12.2" level="project" />
     <orderEntry type="library" name="Leiningen: tigris:0.1.1" level="project" />
     <orderEntry type="library" name="Leiningen: yesql:0.5.3" level="project" />
+    <orderEntry type="library" name="Leiningen: yogthos/config:1.1.1" level="project" />
   </component>
 </module>
