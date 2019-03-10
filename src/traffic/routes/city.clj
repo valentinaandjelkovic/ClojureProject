@@ -17,5 +17,5 @@
     streets))
 
 (defroutes city-routes
-           (GET "/city" request (get-city request))
-           (GET "/street" request (get-street request)))
+           (GET "/city/json" request (get-city request))
+           (GET "/street/json" request (get-street request)))

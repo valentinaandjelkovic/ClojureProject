@@ -10,6 +10,7 @@
             [ring.middleware.flash :refer [wrap-flash]]
             [ring.middleware.resource :refer [wrap-resource]]
             [traffic.routes.reports :refer [report-routes]]
+            [traffic.routes.user :refer [user-routes]]
             [traffic.routes.city :refer [city-routes]]
             [buddy.auth.backends.session :refer [session-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
@@ -39,13 +40,13 @@
 
 (def app
   (-> (routes
-        auth-routes home-routes report-routes weather-routes city-routes base-routes
+        auth-routes home-routes user-routes report-routes weather-routes city-routes base-routes
         (wrap-routes wrap-defaults api-defaults))
       (wrap-json-response)
       (handler/site)
       (wrap-authentication backend)
       (wrap-authorization backend)
+      (wrap-flash)
       (wrap-params)
-      ;(wrap-flash)
       (wrap-webjars)
       (wrap-resource "public")))

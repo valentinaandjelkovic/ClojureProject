@@ -29,18 +29,16 @@ $(document).ready(function () {
         multiple: false,
         closeOnSelect: true,
         ajax: {
-            url: "/city",
+            url: "/city/json",
             dataType: "json",
             type: "GET",
             data: function (params) {
                 var queryParameters = {
                     search: params.term
                 }
-                console.log(queryParameters);
                 return queryParameters;
             },
             processResults: function (data) {
-                console.log("Dataa ", data);
                 return {
                     results: $.map(data, function (item) {
                         console.log(item);
@@ -54,7 +52,6 @@ $(document).ready(function () {
         }
     });
     $('#city').on('select2:select', function (e) {
-        console.log("City select");
         $("#street_div").show();
         var data = e.params.data;
         $('#street').select2({
@@ -63,7 +60,7 @@ $(document).ready(function () {
             multiple: false,
             closeOnSelect: true,
             ajax: {
-                url: "/street",
+                url: "/street/json",
                 dataType: "json",
                 type: "GET",
                 data: function (params) {

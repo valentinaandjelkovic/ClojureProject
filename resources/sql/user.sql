@@ -6,8 +6,14 @@ VALUES (:first_name, :last_name, :username, :email, :password, :admin);
 -- name: update-user!
 -- updates an existing user record
 UPDATE user
-SET first_name = :first_name, last_name = :last_name, email = :email, password=:password, admin=:admin
+SET first_name = :first_name, last_name = :last_name, email = :email
 WHERE id = :id;
+
+-- name: update-password!
+-- update password of existing user record
+UPDATE user
+SET password=:password
+WHERE id=:id;
 
 -- name: get-user
 -- retrieves a user record given the id
@@ -24,4 +30,7 @@ WHERE id = :id;
 SELECT * FROM user
 WHERE username = :username;
 
-
+-- name: get-user-by-id
+-- retrives a user redoc given the id
+SELECT * FROM user
+WHERE id = :id;
