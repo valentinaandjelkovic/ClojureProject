@@ -4,5 +4,5 @@
  :nrepl-port   7000
 
  ; set your dev database connection URL here
- :database-url "mysql://localhost:3306/clojure?user=root&password="
+ :database-url "mysql://localhost:3306/traffic?user=root&password="
  }
