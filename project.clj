@@ -17,7 +17,6 @@
                  [org.webjars/font-awesome "5.6.3"]
                  [org.webjars/jquery "3.3.1-1"]
                  [lib-noir "0.9.9"]
-                 [funcool/struct "1.3.0"]
                  [yesql "0.5.3"]
                  [com.fzakaria/slf4j-timbre "0.3.12"]
                  [crypto-password "0.2.0"]
@@ -25,9 +24,7 @@
                  [ring/ring-json "0.4.0"]
                  [yogthos/config "1.1.1"]
                  [clj-http "3.9.1"]
-                 [org.clojure/data.csv "0.1.4"]
-                 [cheshire "5.8.1"]
-                 [clj-time "0.15.0"]]
+                 [cheshire "5.8.1"]]
   :require [config.core :refer [env]]
   :jvm-opts ["-Dconf=dev-config.edn"]
 

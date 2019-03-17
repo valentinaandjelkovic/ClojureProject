@@ -8,3 +8,5 @@ CREATE TABLE user
  admin BOOLEAN
  );
 
+
+
