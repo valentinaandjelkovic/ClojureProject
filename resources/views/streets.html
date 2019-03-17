@@ -1,0 +1,105 @@
+{% extends "menu.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-dismissible fade show hidden" id="message_div" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="row col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Street</th>
+                    <th>Community</th>
+                    <th>City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for street in streets %}
+                <tr id="{{street.id}}">
+
+                    <td>{{street.id}}</td>
+                    <td class="name">{{street.name}}</td>
+                    <td class="community">{{street.community}}</td>
+                    <td>{{street.city}}</td>
+                    <td>
+                        <button type="button" data-toggle="modal" data-target="#edit" data-id={{street.id}}
+                                class="update btn btn-warning btn-sm"><span class="fa fa-edit"
+                                                                            aria-hidden="true"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" data-toggle="modal" data-target="#delete" data-id={{street.id}}
+                                class="delete btn btn-danger btn-sm"><span class="fa fa-trash"></span>
+                        </button>
+                    </td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="edit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Data</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-dismissible fade show hidden" id="message_update_div" role="alert">
+                    <p id="message_update"></p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <input type="hidden" value="" id="street_id">
+                <div class="form-group row">
+                    <label class="col-md-3 control-label">Street name:</label>
+                    <div class="col-md-9">
+                        <input id="street_name" type="text" class="form-control" name="fname" placeholder="Street name">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 control-label">Community:</label>
+                    <div class="col-md-9">
+                        <input id="street_community" type="text" class="form-control" name="fname"
+                               placeholder="Community">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="edit_button" class="btn btn-warning">Update</button>
+                <button type="button" class="btn btn-basic" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="delete" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Data</h4>
+            </div>
+            <div class="modal-body">
+                <strong>Are you sure you want to delete this street?</strong>
+                <input type="hidden" value="" id="delete_street_id">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="delete_button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-basic" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block page-scripts%}
+{% script "/js/street.js" %}
+{% endblock %}

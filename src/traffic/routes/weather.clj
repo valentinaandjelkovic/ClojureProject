@@ -1,6 +1,5 @@
 (ns traffic.routes.weather
   (:require [compojure.core :refer :all]
-            [buddy.auth :refer [authenticated?]]
             [traffic.layout :as layout]
             [traffic.models.weather :as weather]))
 
@@ -12,8 +11,8 @@
      :body    weather-data}))
 
 (defn weather-page [request]
-  (if (authenticated? (:session request))
-    (layout/render "weather.html")))
+  (if (layout/is-authenticated? (:session request))
+    (layout/render "weather.html" {:admin (layout/is-admin? (:session request))})))
 
 (defroutes weather-routes
            (GET "/weather" request (weather-page request))

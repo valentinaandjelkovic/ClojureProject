@@ -1,4 +1,4 @@
-{% extends "menu-user.html" %}
+{% extends "menu.html" %}
 
 {% block page-style %}
 {% style "/css/report.css" %}
@@ -19,7 +19,7 @@
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 {% for report in reports %}
 
-                <div class="panel panel-default">
+                <div class="panel panel-default mt-1">
                     <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                             <img src={{report.image}} width="30" height="30">
@@ -34,9 +34,9 @@
                     <div id=report_{{forloop.counter}} class="panel-collapse collapse" role="tabpanel"
                          aria-labelledby="headingTwo">
                         <div class="panel-body">
-                            <div class="user">User {{report.user}}</div>
-                            <div class="user">Detail {{report.description}}</div>
-                            <div class="date">Reported time {{report.date}}</div>
+                            <div class="user"><span class="fa fa-user"> </span> User {{report.user}}</div>
+                            <div class="date"><span class="fa fa-clock"> </span> Reported time {{report.date}}</div>
+                            <div class="user"><span class="fa fa-list"> </span> Detail {{report.description}}</div>
                         </div>
                     </div>
                 </div>
@@ -44,11 +44,6 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-        {% if form.error %}
-        <p class="bg-danger">{{form.error}}</p>
-        {% endif %}
     </div>
 </div>
 {% endblock %}

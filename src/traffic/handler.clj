@@ -11,7 +11,7 @@
             [ring.middleware.resource :refer [wrap-resource]]
             [traffic.routes.reports :refer [report-routes]]
             [traffic.routes.user :refer [user-routes]]
-            [traffic.routes.city :refer [city-routes]]
+            [traffic.routes.street :refer [city-routes]]
             [buddy.auth.backends.session :refer [session-backend]]
             [buddy.auth.middleware :refer [wrap-authentication wrap-authorization]]
             [buddy.auth.accessrules :refer [wrap-access-rules success error]]
@@ -25,12 +25,6 @@
   {:status  403
    :headers {"Content-Type" "text/plain"}
    :body    (str "Access to " (:uri request) " is not authorized")})
-
-(defn wrap-restricted [handler]
-  (restrict handler {:handler  authenticated?
-                     :on-error on-error}))
-
-
 
 (defroutes base-routes
            (route/not-found "Not Found")

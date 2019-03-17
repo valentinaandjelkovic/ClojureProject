@@ -3,3 +3,5 @@
 SELECT *
 FROM city
 WHERE name LIKE CONCAT('%',:search,'%');
+
+

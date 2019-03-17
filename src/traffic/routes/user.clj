@@ -4,7 +4,6 @@
             [ring.util.response :refer [response redirect]]
             [struct.core :as st]
             [traffic.models.user :as db]
-            [buddy.auth :refer [authenticated?]]
             [crypto.password.bcrypt :as password]))
 
 (def user-schema-update
@@ -22,9 +21,10 @@
 
 (defn find-user-by-id [session]
   (first (db/get-user-by-id {:id (get-in session [:identity :id])})))
+
 (defn user-page
   [session]
-  (if (authenticated? session)
+  (if (layout/is-authenticated? session)
     (layout/render "user.html" (find-user-by-id session))
     (redirect "/login")))
 
@@ -35,7 +35,7 @@
   (first (st/validate user user-schema-update-password)))
 
 (defn user-page-submit [{:keys [params session]}]
-  (if (authenticated? session)
+  (if (layout/is-authenticated? session)
     (let [errors (validate-user? params)]
       (if (empty? errors)
         (let [rows (->> (assoc params :id (get-in session [:identity :id]))
@@ -53,8 +53,7 @@
        db/update-password!))
 
 (defn change-user-password [{:keys [params session]}]
-  (println "############ Params " params)
-  (if (authenticated? session)
+  (if (layout/is-authenticated? session)
     (let [user (find-user-by-id session)]
       (if (and user (password/check (:password params)
                                     (:password user)))
@@ -74,5 +73,5 @@
 
 (defroutes user-routes
            (GET "/user" request (user-page (:session request)))
-           (POST "/user/update" request (user-page-submit request))
+           (POST "/user" request (user-page-submit request))
            (POST "/user/changePassword" request (change-user-password request)))

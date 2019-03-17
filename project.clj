@@ -26,7 +26,8 @@
                  [yogthos/config "1.1.1"]
                  [clj-http "3.9.1"]
                  [org.clojure/data.csv "0.1.4"]
-                 [cheshire "5.8.1"]]
+                 [cheshire "5.8.1"]
+                 [clj-time "0.15.0"]]
   :require [config.core :refer [env]]
   :jvm-opts ["-Dconf=dev-config.edn"]
 

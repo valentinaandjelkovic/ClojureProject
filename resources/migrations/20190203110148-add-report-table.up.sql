@@ -7,6 +7,6 @@ street INT NOT NULL,
 date DATETIME,
 FOREIGN KEY (type) REFERENCES report_type(id),
 FOREIGN KEY (user) REFERENCES user(id),
-FOREIGN KEY (street) REFERENCES street(id)
+FOREIGN KEY (street) REFERENCES street(id) ON DELETE CASCADE
 );
 

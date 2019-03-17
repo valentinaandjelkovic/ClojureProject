@@ -3,8 +3,6 @@
             [traffic.layout :as layout]
             [ring.util.response :refer [response redirect]]
             [traffic.models.report :as report]
-            [buddy.auth.accessrules :refer [restrict]]
-            [buddy.auth :refer [authenticated?]]
             [struct.core :as st]))
 
 
@@ -18,21 +16,25 @@
 
 (defn reports-page
   [session]
-  (if (authenticated? session)
+  (if (layout/is-authenticated? session)
     (layout/render "report/all.html"
-                   {:reports (report/get-all)})
+                   {:reports (report/get-all)
+                    :admin   (layout/is-admin? session)})
     (redirect "/login")))
 
 
-(defn reports-by-type-page
-  [id]
-  (layout/render "report/all.html"
-                 {:reports (report/get-reports-by-type id)}))
+(defn reports-by-type-page [request]
+  (if (layout/is-authenticated? (:session request))
+    (layout/render "report/all.html"
+                   {:reports (report/get-reports-by-type (request :route-params))
+                    :admin   (layout/is-admin? (:session request))})
+    (redirect "/login")))
 
 (defn add-report-page [session]
-  (if (authenticated? session)
+  (if (layout/is-authenticated? session)
     (layout/render "report/add.html"
-                   {:types (report/get-all-types)})
+                   {:types (report/get-all-types)
+                    :admin (layout/is-admin? session)})
     (redirect "/login")))
 
 
@@ -41,7 +43,7 @@
     (report/insert-report! report)))
 
 (defn add-report-page-submit [request]
-  (if (authenticated? (:session request))
+  (if (layout/is-authenticated? (:session request))
     (let [errors (validate-report? (:params request))]
       (if (empty? errors)
         (if (> (save-report! request) 0) {:status  200
@@ -56,4 +58,4 @@
            (GET "/reports" request (reports-page (:session request)))
            (GET "/reports/add" request (add-report-page (:session request)))
            (POST "/reports/add" request (add-report-page-submit request))
-           (GET "/reports/:id" [& id] (reports-by-type-page id)))
+           (GET "/reports/:id" request (reports-by-type-page request)))

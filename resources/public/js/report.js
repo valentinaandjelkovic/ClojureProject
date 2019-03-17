@@ -29,7 +29,7 @@ $(document).ready(function () {
         multiple: false,
         closeOnSelect: true,
         ajax: {
-            url: "/city/json",
+            url: "/city/search",
             dataType: "json",
             type: "GET",
             data: function (params) {
@@ -60,7 +60,7 @@ $(document).ready(function () {
             multiple: false,
             closeOnSelect: true,
             ajax: {
-                url: "/street/json",
+                url: "/street/search",
                 dataType: "json",
                 type: "GET",
                 data: function (params) {
