@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="618bc6de-7498-42e5-94e0-b6dc173002c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__clj_time_0_15_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__joda_time_2_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__org_clojure_data_csv_0_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/traffic.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +16,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="408">
-                <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+              <first_editor relative-caret-position="102">
+                <caret line="68" column="3" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
               </first_editor>
               <second_editor />
             </state>
@@ -293,7 +288,7 @@
       <workItem from="1552516264645" duration="2275000" />
       <workItem from="1552814020874" duration="33582000" />
       <workItem from="1552936421151" duration="1187000" />
-      <workItem from="1553108146465" duration="1618000" />
+      <workItem from="1553108146465" duration="1844000" />
     </task>
     <task id="LOCAL-00001" summary="Implement weather feature.">
       <created>1552151365847</created>
@@ -330,17 +325,24 @@
       <option name="project" value="LOCAL" />
       <updated>1552857667975</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Edit README file.">
+      <created>1553109902500</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1553109902501</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98204000" />
+    <option name="totallyTimeSpent" value="98430000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" x="453" y="274" width="459" height="180" id="Project" order="0" sideWeight="0.7900172" visible="true" weight="0.049167927" />
+      <window_info content_ui="combo" x="453" y="274" width="459" height="180" id="Project" order="0" sideWeight="0.7900172" visible="true" weight="0.049167927" />
       <window_info id="Structure" order="1" sideWeight="0.20998278" side_tool="true" weight="0.37594554" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -356,7 +358,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50907713" side_tool="true" weight="0.049099836" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49092284" weight="0.12274959" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49092284" visible="true" weight="0.5351882" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -455,7 +457,8 @@
     <MESSAGE value="Add update and delete street." />
     <MESSAGE value="Update README file." />
     <MESSAGE value="Edit migration files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit migration files." />
+    <MESSAGE value="Edit README file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit README file." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/traffic/layout.clj">
@@ -718,8 +721,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="408">
-            <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+          <first_editor relative-caret-position="102">
+            <caret line="68" column="3" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>

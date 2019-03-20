@@ -28,7 +28,7 @@ To run applicaiton, the steps are:
     lein ring server
 
 
-##Libraries 
+## Libraries 
   Clojure project was generated using:
   
   [Leiningen][1] - dependency management library for building and configure Clojure project
@@ -45,7 +45,7 @@ To run applicaiton, the steps are:
   
   [Struct][8] - a structural validation library for Clojure
     
-##About project
+## About project
 
 The project consists of the following frontend pages:
 1. Login and sign up page - The user must be authenticated to access the application. If the user does not have an account, he/she can register.
@@ -66,7 +66,7 @@ In addition to the above functionalities, user that has admin privileges can:
 1. Edit street by changing street name and street community.
 2. Delete street and all existing reports for that street.
 
-##References
+## References
 Clojure for the brave and true
 
 Clojure Web Development Essentials
